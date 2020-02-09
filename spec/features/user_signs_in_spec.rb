@@ -12,6 +12,10 @@ feature 'user signs in', %Q{
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
+    fill_in 'User Name', with: user.username
+    fill_in 'City', with: user.city
+    fill_in 'State', with: user.state
+    fill_in 'Zip Code', with: user.zip
 
     click_button 'Log in'
 
