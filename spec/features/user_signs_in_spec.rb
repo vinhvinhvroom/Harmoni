@@ -6,16 +6,20 @@ feature 'user signs in', %Q{
   So that I can regain access to my account
 } do
   scenario 'specify valid credentials' do
-    user = FactoryBot.create(:user)
 
+    user = User.create(
+      email: "email@email.com",
+      password: "password123",
+      username: "username",
+      city: "Boston",
+      state: "MA",
+      zip: "02116"
+    )
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    fill_in 'User Name', with: user.username
-    fill_in 'City', with: user.city
-    fill_in 'State', with: user.state
-    fill_in 'Zip Code', with: user.zip
+    fill_in 'User Name', with: user.username 
 
     click_button 'Log in'
 
