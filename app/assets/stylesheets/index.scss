@@ -1,0 +1,63 @@
+.index-title{
+  border:solid purple;
+  text-align: center;
+}
+
+.welcome-tile{
+  border: solid brown;
+  height: 150px;
+  text-align: center;
+}
+
+li{
+  list-style-type: none;
+}
+
+.tile-img{
+  height: 200px;
+  width: 300px;
+  border: solid red;
+}
+
+.tile-img:hover {
+  opacity: 1.0;
+}
+
+.row.tile-container{
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border:solid yellow;
+}
+
+.concert-tile{
+  border: solid;
+  width: 75%;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.concert-tile:hover{
+  opacity: 1.0;
+}
+
+.tile-info-wrapper{
+  border: solid green;
+  width: 60%;
+  padding: 10px;
+}
+
+.concert-name{
+  font-size: 20px;
+  border: solid;
+}
+
+.date{
+  border: solid;
+}
