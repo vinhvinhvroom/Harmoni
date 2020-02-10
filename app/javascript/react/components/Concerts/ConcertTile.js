@@ -2,15 +2,18 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const ConcertTile = ({ concert }) => {
-  let { name, images, url, id, dates, } = concert
+  let { name, date, image, url, venue } = concert
 
   return (
-    <div>
-      <li>
-        <img src={images[0].url} />
-        <h4>{name}</h4>
-        <h6>{dates.start.localDate}</h6>
-      </li>
+    <div className="columns small-10 large-6">
+      <div className="concert-tile">
+          <img className="tile-img" src={image} />
+          <div className="tile-info-wrapper">
+            <h4 className="concert-name">{name}</h4>
+            <h6 className="date">{date}</h6>
+            <h6 className="venue">{venue}</h6>
+          </div>
+      </div>
     </div>
   )
 }
