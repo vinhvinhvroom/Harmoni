@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import ConcertTile from "./ConcertTile"
+import WelcomeTile from "./WelcomeTile"
 
 const ConcertsIndex = (props) => {
   const[concerts, setConcerts] = useState([])
@@ -15,7 +16,7 @@ const ConcertsIndex = (props) => {
       })
       .then(response => response.json())
       .then(body => {
-        setConcerts(body.events)
+        setConcerts(body)
       })
       .catch(error => {
         console.log(`Error fetching concerts: ${error.message}`)
@@ -32,9 +33,12 @@ const ConcertsIndex = (props) => {
   })
 
   return(
-    <div>
-      <h1>Concerts in your area!</h1>
-      {concertsMap}
+    <div className="index-container">
+      <h1 className="index-title">Harmoni</h1>
+      <WelcomeTile />
+      <div className="row tile-container">
+        {concertsMap}
+      </div>
     </div>
   )
 }
