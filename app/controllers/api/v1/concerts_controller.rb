@@ -11,7 +11,8 @@ class Api::V1::ConcertsController < ApplicationController
   end
 
   def show
-    concerts_wrapper = ConcertsWrapper.retrieve_concerts(query).find(:id)
+    concert_wrapper = ConcertsWrapper.retrieve_specific_concert(params[:id])
+    render json: concert_wrapper
   end
 
 end
