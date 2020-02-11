@@ -4,13 +4,13 @@ import Adapter from "enzyme-adapter-react-16"
 import { BrowserRouter, Link } from "react-router-dom"
 Enzyme.configure({ adapter: new Adapter() })
 
-import ConcertTile from "./Concerts/ConcertTile"
+import ConcertShow from "./Concerts/ConcertShow"
 
-describe("ConcertTile", () => {
-  let wrapper, concert, user
+describe("ConcerShow", () => {
+  let wrapper, concertObject
 
   beforeEach(() => {
-    concert = {
+    concertObject = {
     "name": "Guns N' Roses 2020 Tour",
     "date": "July 21, 2020 ",
     "image": "https://s1.ticketm.net/dam/a/26a/a1c6b081-0e43-4660-b28d-c1e5a145826a_1277601_RETINA_LANDSCAPE_16_9.jpg",
@@ -27,8 +27,8 @@ describe("ConcertTile", () => {
 
     wrapper = mount(
       <BrowserRouter>
-        <ConcertTile
-          concert={concert}
+        <ConcertShow
+          concertObject={concertObject}
           />
       </BrowserRouter>
     )
@@ -36,23 +36,27 @@ describe("ConcertTile", () => {
 
   it("should render an img tag containing the img received via props", () => {
     expect(wrapper.find('img').props()).toEqual({
-      className: "tile-img",
+      className: "show show-img",
       src: "https://s1.ticketm.net/dam/a/26a/a1c6b081-0e43-4660-b28d-c1e5a145826a_1277601_RETINA_LANDSCAPE_16_9.jpg"})
   });
 
-  it("should render a h4 tag containing the text received via props", () =>{
-  expect(wrapper.find('h4').text()).toBe("Guns N' Roses 2020 Tour")
+  it("should render a p tag containing the text received via props", () =>{
+    expect(wrapper.find('p').text()).toBe("Rock")
   });
 
-  it("should render a date class", () =>{
-  expect(wrapper.find('.date').text()).toBe("July 21, 2020 ")
+  it("should render a p tag containing the text received via props", () =>{
+    expect(wrapper.find('p').text()).toBe("Rock")
   });
 
-  it("should render a venue class", () =>{
-  expect(wrapper.find('.venue').text()).toBe("Fenway Park - Boston, MA")
+  it("should render a show-date class", () =>{
+  expect(wrapper.find('.show-date').text()).toBe("July 21, 2020 ")
   });
 
-  it("should contain a link that wraps the img tab to take User to show page", () => {
-    expect(wrapper.find(Link).props().to).toBe("/concerts/Z7r9jZ1Ae0Nob")
-  })
+  it("should render a show-venue class", () =>{
+  expect(wrapper.find('.show-venue').text()).toBe("Fenway Park")
+  });
+
+  it("should render a show-sale-date class", () =>{
+  expect(wrapper.find('.show-sale-date').text()).toBe("On Sale: February 07, 2020 - 05:00pm")
+  });
 })

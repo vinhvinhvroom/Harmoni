@@ -5,13 +5,13 @@ const ConcertShow = ({ concertObject }) => {
 
   return(
     <div>
-      <img src={image}/>
-      <h3>{name}</h3>
-      <p>{genre}</p>
-      <h5>{date}</h5>
-      <h5>{venue}</h5>
-      <h5>{address}, {city}, {state}</h5>
-      <h5>On Sale: {sale_date}</h5>
+      <img className="show show-img" src={image}/>
+      <h3 className="show show-name">{name}</h3>
+      <p className="show show-genre">{genre}</p>
+      <h5 className="show show-date">{date}</h5>
+      <h5 className="show show-venue">{venue}</h5>
+      <h5 className="show show-address">{address}, {city}, {state}</h5>
+      <h5 className="show show-sale-date">On Sale: {sale_date}</h5>
       <a href={url} className="button">Tickets</a>
     </div>
   )
