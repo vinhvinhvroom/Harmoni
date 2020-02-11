@@ -15,7 +15,7 @@ const ConcertsIndex = (props) => {
       })
       .then(response => response.json())
       .then(body => {
-        setConcerts(body.events)
+        setConcerts(body)
       })
       .catch(error => {
         console.log(`Error fetching concerts: ${error.message}`)
@@ -32,9 +32,12 @@ const ConcertsIndex = (props) => {
   })
 
   return(
-    <div>
-      <h1>Concerts in your area!</h1>
-      {concertsMap}
+    <div className="index-container">
+      <h4 className="welcome-text">"The combination of musical tones to produce a pleasing effect."</h4>
+      <h6 className="welcome-text">Let Harmoni connect you with new live music near you.</h6>
+      <div className="row tile-container">
+        {concertsMap}
+      </div>
     </div>
   )
 }

@@ -7,6 +7,6 @@ class Api::V1::ConcertsController < ApplicationController
     end
 
     concerts_wrapper = ConcertsWrapper.retrieve_concerts(query)
-    render json: concerts_wrapper.concerts_objects[0][1]
+    render json: concerts_wrapper
   end
 end
