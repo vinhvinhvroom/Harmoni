@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import ConcertTile from "./ConcertTile"
-import WelcomeTile from "./WelcomeTile"
 
 const ConcertsIndex = (props) => {
   const[concerts, setConcerts] = useState([])
@@ -34,8 +33,8 @@ const ConcertsIndex = (props) => {
 
   return(
     <div className="index-container">
-      <h1 className="index-title">Harmoni</h1>
-      <WelcomeTile />
+      <h4 className="welcome-text">"The combination of musical tones to produce a pleasing effect."</h4>
+      <h6 className="welcome-text">Let Harmoni connect you with new live music near you.</h6>
       <div className="row tile-container">
         {concertsMap}
       </div>
