@@ -26,19 +26,20 @@ li{
   justify-content: center;
   padding: 10px;
   margin: auto;
-  width: 100%;
+  width: 70%;
 }
 
 .concert-tile{
-  margin: auto;
+  margin: 50px;
   float: left;
-  border: 10px solid #fff;
+  border: 10px solid black;
   overflow: hidden;
   position: relative;
   text-align: center;
-  box-shadow: 1px 1px 2px #e6e6e6;
+  box-shadow: 1px 1px 2px ;
   cursor: default;
-  background: #fff;
+  background: black;
+  border-radius: 80px;
 }
 
 .concert-tile .tile-info-wrapper{
@@ -80,7 +81,6 @@ li{
   opacity: .5;
   background-color: rgba(58, 1, 132, 0.44);
   transition: all 0.4s ease-in-out;
-  border: solid red;
 }
 
 .concert-tile h4{
