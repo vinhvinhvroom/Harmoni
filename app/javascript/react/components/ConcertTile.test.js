@@ -16,7 +16,7 @@ describe("ConcertTile", () => {
     "image": "https://s1.ticketm.net/dam/a/26a/a1c6b081-0e43-4660-b28d-c1e5a145826a_1277601_RETINA_LANDSCAPE_16_9.jpg",
     "url": "http://www.ticketsnow.com/InventoryBrowse/TicketList.aspx?PID=2923458",
     "venue": "Fenway Park",
-    "tm_id": "Z7r9jZ1Ae0Nob",
+    "id": "Z7r9jZ1Ae0Nob",
     "city": "Boston",
     "state": "MA",
     "address": "4 Yawkey Way",
@@ -51,4 +51,8 @@ describe("ConcertTile", () => {
   it("should render a venue class", () =>{
   expect(wrapper.find('.venue').text()).toBe("Fenway Park - Boston, MA")
   });
+
+  it("should contain a link that wraps the img tab to take User to show page", () => {
+    expect(wrapper.find(Link).props().to).toBe("/concerts/Z7r9jZ1Ae0Nob")
+  })
 })
