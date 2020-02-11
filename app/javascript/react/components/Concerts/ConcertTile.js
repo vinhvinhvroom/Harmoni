@@ -5,7 +5,7 @@ const ConcertTile = ({ concert }) => {
   let { name, date, image, url, venue, city, state, address, id } = concert
 
   return (
-    <div className="columns small-10 large-4 tile-wrapper">
+    <div className="columns small-8 large-4 tile-wrapper">
       <div className="concert-tile">
             <img className="tile-img" src={image} />
           <div className="tile-info-wrapper">
