@@ -7,6 +7,28 @@ class ConcertsWrapper
     @concerts_objects = concerts_objects
   end
 
+  def self.retrieve_specific_concert(params)
+    concert_url = "https://app.ticketmaster.com/discovery/v2/events/#{params}.json?/&apikey=#{ENV["TICKET_KEY"]}"
+    concert = []
+    response = Faraday.get(concert_url)
+    parsed_response = JSON.parse(response.env["response_body"])
+    concert_object = {
+      name: parsed_response["name"],
+      date: Time.parse(parsed_response["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
+      image: parsed_response["images"][0]["url"],
+      url: parsed_response["url"],
+      venue: parsed_response["_embedded"]["venues"][0]["name"],
+      id: parsed_response["id"],
+      city: parsed_response["_embedded"]["venues"][0]["city"]["name"],
+      state: parsed_response["_embedded"]["venues"][0]["state"]["stateCode"],
+      address: parsed_response["_embedded"]["venues"][0]["address"]["line1"],
+      genre: parsed_response["classifications"][0]["genre"]["name"],
+      sub_genre: parsed_response["classifications"][0]["genre"]["name"],
+      sale_date: Time.parse(parsed_response["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
+    }
+    return concert_object
+  end
+
   def self.retrieve_concerts(query)
     concertsData = concerts_request(query)
     concerts = concerts(concertsData)
@@ -20,7 +42,7 @@ class ConcertsWrapper
         image: concert["images"][0]["url"],
         url: concert["url"],
         venue: concert["_embedded"]["venues"][0]["name"],
-        tm_id: concert["id"],
+        id: concert["id"],
         city: concert["_embedded"]["venues"][0]["city"]["name"],
         state: concert["_embedded"]["venues"][0]["state"]["stateCode"],
         address: concert["_embedded"]["venues"][0]["address"]["line1"],
