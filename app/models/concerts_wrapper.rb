@@ -20,7 +20,7 @@ class ConcertsWrapper
         image: concert["images"][0]["url"],
         url: concert["url"],
         venue: concert["_embedded"]["venues"][0]["name"],
-        tm_id: concert["id"],
+        id: concert["id"],
         city: concert["_embedded"]["venues"][0]["city"]["name"],
         state: concert["_embedded"]["venues"][0]["state"]["stateCode"],
         address: concert["_embedded"]["venues"][0]["address"]["line1"],
