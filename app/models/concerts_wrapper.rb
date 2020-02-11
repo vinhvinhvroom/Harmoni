@@ -16,11 +16,17 @@ class ConcertsWrapper
     concerts_wrapper.each do |concert|
       concert_object = {
         name: concert["name"],
-        date: Time.parse(concert["dates"]["start"]["localDate"]).strftime("%B %d, %Y - %I:%M%P"),
+        date: Time.parse(concert["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
         image: concert["images"][0]["url"],
         url: concert["url"],
         venue: concert["_embedded"]["venues"][0]["name"],
-        tm_id: concert["id"]
+        tm_id: concert["id"],
+        city: concert["_embedded"]["venues"][0]["city"]["name"],
+        state: concert["_embedded"]["venues"][0]["state"]["stateCode"],
+        address: concert["_embedded"]["venues"][0]["address"]["line1"],
+        genre: concert["classifications"][0]["genre"]["name"],
+        sub_genre: concert["classifications"][0]["genre"]["name"],
+        sale_date: Time.parse(concert["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
       }
       concerts_array << concert_object
     end
