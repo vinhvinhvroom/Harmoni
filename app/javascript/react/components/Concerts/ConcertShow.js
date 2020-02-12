@@ -1,6 +1,6 @@
 import React from "react"
 
-const ConcertShow = ({ concertObject }) => {
+const ConcertShow = ({ concertObject, playlistObject }) => {
   let { name, date, image, url, venue, address, city, state, genre, sub_genre, sale_date} = concertObject
 
   return(
@@ -15,6 +15,7 @@ const ConcertShow = ({ concertObject }) => {
             <h6 className="show show-address">{address}, {city}, {state}</h6>
             <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
             <a href={url} target="_blank" className="show-button">Tickets</a>
+            <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
         </div>
       </div>
     </div>
