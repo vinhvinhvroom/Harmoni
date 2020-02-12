@@ -3,11 +3,12 @@ import ConcertShow from "./ConcertShow.js"
 
 const ConcertShowContainer = (props) => {
   const[concert, setConcert] = useState([])
+  const[playlist, setPlaylist] = useState(null)
 
   let concertId = props.match.params.id
 
   useEffect(() => {
-    fetch(`/api/v1/concerts/${concertId}`)
+    fetch(`/api/v1/concerts/${concertId}/tracks/${concertId}`)
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -17,7 +18,8 @@ const ConcertShowContainer = (props) => {
       }
     })
     .then(body => {
-      setConcert(body)
+      setConcert(body.concert)
+      setPlaylist(body.playlist)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -27,6 +29,7 @@ const ConcertShowContainer = (props) => {
       <ConcertShow
         key={concert.id}
         concertObject={concert}
+        playlistObject={playlist}
         />
     </div>
   )
