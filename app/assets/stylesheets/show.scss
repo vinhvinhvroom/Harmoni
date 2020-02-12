@@ -1,0 +1,20 @@
+.show-wrapper{
+  border: solid black;
+  padding: 10px;
+}
+
+.show-tile {
+  border: solid green;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+.show-img{
+  align-items: center;
+  height: 400px;
+  width: 500px;
+  border: solid red;
+}
