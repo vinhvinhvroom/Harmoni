@@ -7,13 +7,15 @@ const ConcertShow = ({ concertObject }) => {
     <div className="columns small-8 medium-6 large-4 show-wrapper" >
       <div className="show-tile">
         <img className="show show-img" src={image}/>
-        <h3 className="show show-name">{name}</h3>
-        <p className="show show-genre">{genre}</p>
-        <h5 className="show show-date">{date}</h5>
-        <h5 className="show show-venue">{venue}</h5>
-        <h5 className="show show-address">{address}, {city}, {state}</h5>
-        <h5 className="show show-sale-date">On Sale: {sale_date}</h5>
-        <a href={url} className="button">Tickets</a>
+          <div className="show show-content-wrapper">
+            <h4 className="show show-name">{name}</h4>
+            <p className="show show-genre">{genre}</p>
+            <h6 className="show show-date">{date}</h6>
+            <h6 className="show show-venue">{venue}</h6>
+            <h6 className="show show-address">{address}, {city}, {state}</h6>
+            <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
+            <a href={url} target="_blank" className="show-button">Tickets</a>
+        </div>
       </div>
     </div>
   )
