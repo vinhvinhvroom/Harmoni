@@ -40,8 +40,8 @@ describe("ConcerShow", () => {
       src: "https://s1.ticketm.net/dam/a/26a/a1c6b081-0e43-4660-b28d-c1e5a145826a_1277601_RETINA_LANDSCAPE_16_9.jpg"})
   });
 
-  it("should render a p tag containing the text received via props", () =>{
-    expect(wrapper.find('p').text()).toBe("Rock")
+  it("should render an h4 tag containing the text received via props", () =>{
+    expect(wrapper.find('h4').text()).toBe("Guns N' Roses 2020 Tour")
   });
 
   it("should render a p tag containing the text received via props", () =>{
