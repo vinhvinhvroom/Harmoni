@@ -1,10 +1,12 @@
 class Api::V1::ConcertsController < ApplicationController
-  
+
   def index
     user = current_user
-    query = current_user.city
+    query = ""
     if user == nil
       query = "Boston"
+    else
+      query = current_user.city
     end
 
     concerts_wrapper = ConcertsWrapper.retrieve_concerts(query)
