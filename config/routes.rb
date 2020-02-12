@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
-      resources :concerts, only: [:index, :show]
+      resources :concerts, only: [:index, :show] do
+        resources :tracks, only: [:show]
+      end
     end
   end
+
 end
