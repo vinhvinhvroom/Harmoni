@@ -5,7 +5,7 @@ const ConcertTile = ({ concert }) => {
   let { name, date, image, url, venue, city, state, address, id } = concert
 
   return (
-    <div className="columns small-8 large-4 tile-wrapper">
+    <div className="columns small-8 medium-6 large-4 tile-wrapper">
       <div className="concert-tile">
             <img className="tile-img" src={image} />
           <div className="tile-info-wrapper">
@@ -13,7 +13,7 @@ const ConcertTile = ({ concert }) => {
             <h6 className="date">{date}</h6>
             <h6 className="venue">{venue} - {city}, {state}</h6>
             <Link to={`/concerts/${id}`}>
-              <input className="button" type="button" value="More Info"/>
+              <input className="show button" type="button" value="More Info"/>
             </Link>
           </div>
       </div>
