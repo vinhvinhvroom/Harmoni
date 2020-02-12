@@ -54,8 +54,8 @@
   z-index:-1;
   width: 0%;
   height:1px;
-  background: #fcba03;
-  box-shadow: inset 0px 0px 0px #fcba03;
+  background: #0272b3;
+  box-shadow: inset 0px 0px 0px #0272b3;
   display: block;
   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
   transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
@@ -73,7 +73,7 @@
   z-index:-1;
   width: 0%;
   height:1px;
-  background: #fcba03;
+  background: #0272b3;
   -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
   transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
 }
@@ -83,9 +83,9 @@
 }
 
 .show-button:hover{
-  border-top: 2px solid #fcba03;
-  border-bottom: 2px solid #fcba03;
-  border-left:2px solid #fcba03;
-  border-right:2px solid #fcba03;
+  border-top: 2px solid #0272b3;
+  border-bottom: 2px solid #0272b3;
+  border-left:2px solid #0272b3;
+  border-right:2px solid #0272b3;
   color: black;
 }
