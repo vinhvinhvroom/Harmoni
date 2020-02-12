@@ -30,7 +30,7 @@ const ConcertShowContainer = (props) => {
         key={concert.id}
         concertObject={concert}
         playlistObject={playlist}
-        />
+      />
     </div>
   )
 }
