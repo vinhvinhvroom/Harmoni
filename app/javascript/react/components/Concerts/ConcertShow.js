@@ -9,23 +9,25 @@ const ConcertShow = ({ concertObject, playlistObject }) => {
       <div className="show-tile">
         <img className="show show-img" src={image}/>
           <div className="show show-content-wrapper">
-            <h4 className="show show-name">{name}</h4>
-            <p className="show show-genre">{genre}</p>
-            <h6 className="show show-date">{date}</h6>
-            <h6 className="show show-venue">{venue}</h6>
-            <h6 className="show show-address">{address}, {city}, {state}</h6>
-            <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
-            <a href={url} target="_blank" className="show-button">Tickets</a>
-            <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
+            <div className="show info-wrapper">
+              <h4 className="show show-name">{name}</h4>
+              <p className="show show-genre">{genre}</p>
+              <h6 className="show show-date">{date}</h6>
+              <h6 className="show show-venue">{venue}</h6>
+              <h6 className="show show-address">{address}, {city}, {state}</h6>
+              <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
+              <a href={url} target="_blank" className="show-button">Tickets</a>
+              <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
+            </div>
+            <div className="show spotify-player">
+              <SpotifyPlayer
+                uri={playlistObject}
+                size={{width: 400, height: 450}}
+                theme="white"
+                view="list"
+                />
+            </div>
         </div>
-      </div>
-      <div className="show spotify-player">
-        <SpotifyPlayer
-          uri={playlistObject}
-          size={{width: 600, height: 500}}
-          theme="white"
-          view="list"
-        />
       </div>
     </div>
   )
