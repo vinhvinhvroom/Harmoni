@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :concerts, only: [:index, :show] do
         resources :tracks, only: [:show]
       end
+        post '/concerts/search', to: 'concerts#search'
     end
   end
 
