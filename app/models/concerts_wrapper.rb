@@ -12,9 +12,11 @@ class ConcertsWrapper
     concert = []
     response = Faraday.get(concert_url)
     parsed_response = JSON.parse(response.env["response_body"])
+
     concert_object = {
       name: parsed_response["name"],
       artist_name: parsed_response["_embedded"]["attractions"][0]["name"],
+      artists:parsed_response["_embedded"]["attractions"],
       date: Time.parse(parsed_response["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
       image: parsed_response["images"][0]["url"],
       url: parsed_response["url"],
@@ -27,6 +29,7 @@ class ConcertsWrapper
       sub_genre: parsed_response["classifications"][0]["genre"]["name"],
       sale_date: Time.parse(parsed_response["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
     }
+
     return concert_object
   end
 
@@ -40,6 +43,7 @@ class ConcertsWrapper
       concert_object = {
         name: concert["name"],
         artist_name: concert["_embedded"]["attractions"][0]["name"],
+        artists:concert["_embedded"]["attractions"],
         date: Time.parse(concert["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
         image: concert["images"][0]["url"],
         url: concert["url"],

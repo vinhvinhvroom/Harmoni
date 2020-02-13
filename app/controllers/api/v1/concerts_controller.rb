@@ -18,4 +18,7 @@ class Api::V1::ConcertsController < ApplicationController
     render json: concert_wrapper
   end
 
+  # def search
+  # end
+
 end
