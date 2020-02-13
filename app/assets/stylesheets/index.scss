@@ -3,19 +3,13 @@
   text-align: center;
 }
 
-.welcome-tile{
-  border: solid brown;
-  height: 150px;
-  text-align: center;
-}
-
 li{
   list-style-type: none;
 }
 
 .concert-name .date .venue .welcome-text{
   font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 25px;
+  font-size: 15px;
 }
 
 .tile-container{
@@ -47,7 +41,7 @@ li{
 }
 
 .concert-tile .tile-info-wrapper{
-  width: 350px;
+  width: 375px;
   height: 300px;
   position: absolute;
   overflow: hidden;
@@ -58,8 +52,8 @@ li{
 
 .tile-img{
   transition: all 0.2s linear;
-  width: 350px;
-  height: 250px;
+  width: 375px;
+  height: 300px;
   display: block;
   position: relative
 }
