@@ -12,15 +12,6 @@
   align-items: center;
 }
 
-.show-content-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid red;
-  margin: 50px;
-  padding: 10px;
-}
-
 .show-img{
   align-items: center;
   border-radius: 50px;
@@ -88,4 +79,33 @@
   border-left:2px solid #0272b3;
   border-right:2px solid #0272b3;
   color: black;
+}
+
+.show-content-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  transition: box-shadow .3s;
+}
+
+.show-content-wrapper:hover {
+  box-shadow: 0 0 5px rgba(33,33,33,.2);
+}
+
+.show .spotify-player{
+  border: solid pink;
+  margin: 15px;
+}
+
+.show .info-wrapper{
+  height: 100%;
+  transition: box-shadow .3s;
+  padding: 10px;
+  margin: 15px;
+  width: 300px;
+  border: solid;
 }
