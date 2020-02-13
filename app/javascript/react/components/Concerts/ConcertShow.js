@@ -1,7 +1,7 @@
 import React from "react"
 import SpotifyPlayer from "react-spotify-player"
 
-const ConcertShow = ({ concertObject, playlistObject }) => {
+const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
   let { name, date, image, url, venue, address, city, state, genre, sub_genre, sale_date} = concertObject
 
   return(
@@ -17,15 +17,15 @@ const ConcertShow = ({ concertObject, playlistObject }) => {
               <h6 className="show show-address">{address}, {city}, {state}</h6>
               <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
               <a href={url} target="_blank" className="show-button">Tickets</a>
-              <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
+              <a href={artistObject} target="_blank" className="show-button">Spotify</a>
             </div>
             <div className="show spotify-player">
               <SpotifyPlayer
                 uri={playlistObject}
-                size={{width: 400, height: 450}}
-                theme="white"
+                size={{width: 400, height:450}}
                 view="list"
-                />
+                theme="white"
+              />
             </div>
         </div>
       </div>

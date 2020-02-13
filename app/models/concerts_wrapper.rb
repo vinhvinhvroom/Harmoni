@@ -14,6 +14,7 @@ class ConcertsWrapper
     parsed_response = JSON.parse(response.env["response_body"])
     concert_object = {
       name: parsed_response["name"],
+      artist_name: parsed_response["_embedded"]["attractions"][0]["name"],
       date: Time.parse(parsed_response["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
       image: parsed_response["images"][0]["url"],
       url: parsed_response["url"],
@@ -38,6 +39,7 @@ class ConcertsWrapper
     concerts_wrapper.each do |concert|
       concert_object = {
         name: concert["name"],
+        artist_name: concert["_embedded"]["attractions"][0]["name"],
         date: Time.parse(concert["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
         image: concert["images"][0]["url"],
         url: concert["url"],

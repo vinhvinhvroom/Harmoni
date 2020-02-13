@@ -4,6 +4,7 @@ import ConcertShow from "./ConcertShow.js"
 const ConcertShowContainer = (props) => {
   const[concert, setConcert] = useState([])
   const[playlist, setPlaylist] = useState(null)
+  const[artistSpotify, setArtistSpotify] = useState(null)
 
   let concertId = props.match.params.id
 
@@ -20,6 +21,7 @@ const ConcertShowContainer = (props) => {
     .then(body => {
       setConcert(body.concert)
       setPlaylist(body.playlist)
+      setArtistSpotify(body.artist_spotify_page)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -30,6 +32,7 @@ const ConcertShowContainer = (props) => {
         key={concert.id}
         concertObject={concert}
         playlistObject={playlist}
+        artistObject={artistSpotify}
       />
     </div>
   )
