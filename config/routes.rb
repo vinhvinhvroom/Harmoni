@@ -9,10 +9,17 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :concerts, only: [:index, :show] do
+        resources :comments, only: [:index, :create]
         resources :tracks, only: [:show]
       end
         post '/concerts/search', to: 'concerts#search'
     end
   end
+
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :comments, only: [:index]
+  #   end
+  # end
 
 end
