@@ -6,19 +6,20 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <nav class="top-bar">
-    <h1><a href="/">Harmoni</a></h1>
+    <h1><a class="title" href="/">Harmoni</a></h1>
 
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class =>'sign' %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, :class =>'sign' %></li>
+          <li><%= link_to 'Sign In', new_user_session_path, :class =>'sign' %></li>
         <%- end -%>
       </ul>
     </section>
