@@ -76,11 +76,13 @@ const ConcertShowContainer = (props) => {
         playlistObject={playlist}
         artistObject={artistSpotify}
       />
-      <CommentForm
-      onSubmit={submitNewComment}
-      concertId={concertId}
-      />
-      {commentsMap}
+      <div className="comment-form-tile-wrapper">
+        <CommentForm
+        onSubmit={submitNewComment}
+        concertId={concertId}
+        />
+        {commentsMap}
+      </div>
     </div>
   )
 }
