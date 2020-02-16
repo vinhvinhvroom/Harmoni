@@ -8,8 +8,9 @@ li{
 
 .concert-name .date .venue .welcome-text{
   font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 15px;
+  font-size: 2em;
 }
+
 
 .tile-container{
   display: flex;
@@ -46,14 +47,39 @@ li{
   top: 0;
   left: 0;
   padding: 10px;
+  margin: auto;
+  justify-content: center;
+  opacity: .5;
+  background-color: rgba(58, 1, 132, 0.44);
+  transition: all 0.4s ease-in-out;
 }
+
 
 .tile-img{
   transition: all 0.2s linear;
-  width: 375px;
-  height: 300px;
+  width: 350px;
+  height: 250px;
   display: block;
   position: relative
+}
+
+@media only screen and (max-width: 325px) {
+  .tile-img{
+    width: 200px;
+    height: 175px;
+  }
+
+  .tile-info-wrapper{
+    height: 100px;
+    width: 200px;
+    font-size: 11px;
+  }
+
+  .concert-tile .button{
+    width: 75px;
+    height: 30px;
+    font-size: 10px;
+  }
 }
 
 .concert-tile h4{
@@ -71,12 +97,6 @@ li{
   color: #fff;
   padding: 0px 20px 0px;
   text-align: center
-}
-
-.concert-tile .tile-info-wrapper{
-  opacity: .5;
-  background-color: rgba(58, 1, 132, 0.44);
-  transition: all 0.4s ease-in-out;
 }
 
 .concert-tile h4{
@@ -106,12 +126,15 @@ li{
 
 .concert-tile:hover .tile-info-wrapper{
   opacity: 1;
+  margin:auto;
+  width: 100%;
 }
 
 .concert-tile:hover h4,
 .concert-tile:hover h6{
   opacity: 1;
   transform: translateY(0px);
+  font-size: 1em;
 }
 
 .concert-tile:hover input{
