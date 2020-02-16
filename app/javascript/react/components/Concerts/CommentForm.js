@@ -39,34 +39,37 @@ const CommentForm = (props) => {
   }
 
   return(
-    <div>
-      <form className="comments-form" onSubmit={handleSubmit}>
+    <div className="row">
+      <div className="columns small-10 medium-6 large-4 comment-form-wrapper">
 
-        <ErrorsList errors={errors} />
+        <form className="comments-form" onSubmit={handleSubmit}>
 
-        <label>Comment
+          <ErrorsList errors={errors} />
+
+          <label>Share your thoughts
+            <textarea
+              type="textarea"
+              className="comment-box"
+              name="comment"
+              onChange={handleChange}
+              value={commentRecord.comment}
+              />
+          </label>
+
           <input
-            type="text"
-            className="comment-box"
-            name="comment"
-            onChange={handleChange}
-            value={commentRecord.comment}
+            type="hidden"
+            name="concertId"
+            value={props.concertId}
             />
-        </label>
 
-        <input
-          type="hidden"
-          name="concertId"
-          value={props.concertId}
-          />
+          <input
+            type="submit"
+            className="button comment-submit"
+            value="Submit Comment"
+            />
 
-        <input
-          type="submit"
-          className="button comment-submit"
-          value="Submit Comment"
-          />
-
-      </form>
+        </form>
+      </div>
     </div>
   )
 }

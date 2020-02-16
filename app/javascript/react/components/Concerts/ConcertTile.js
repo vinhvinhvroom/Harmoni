@@ -8,7 +8,7 @@ const ConcertTile = ({ concert }) => {
     <div className="columns small-8 medium-6 large-4 tile-wrapper">
       <div className="concert-tile">
             <img className="tile-img" src={image} />
-          <div className="tile-info-wrapper">
+          <div className="columns small-10 medium-6 large-4 tile-info-wrapper">
             <h4 className="concert-name">{name}</h4>
             <h6 className="date">{date}</h6>
             <h6 className="venue">{venue} - {city}, {state}</h6>
