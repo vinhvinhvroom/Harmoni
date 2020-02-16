@@ -9,6 +9,7 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
       <div className="show-tile">
         <img className="show show-img" src={image}/>
           <div className="columns small-10 medium-6 large-4 show show-content-wrapper">
+
             <div className="show info-wrapper">
               <h4 className="show show-name">{name}</h4>
               <p className="show show-genre">{genre}</p>
@@ -19,12 +20,14 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
               <a href={url} target="_blank" className="show-button">Tickets</a>
               <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
             </div>
+
             <div className="show spotify-player">
               <SpotifyPlayer
                 uri={playlistObject}
-                size={{width: 400, height:450}}
+                size={{width: 300, height:400}}
                 view="list"
                 theme="white"
+
               />
             </div>
         </div>
