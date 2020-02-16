@@ -46,7 +46,7 @@ const CommentForm = (props) => {
 
           <ErrorsList errors={errors} />
 
-          <label>Comment
+          <label>Share your thoughts
             <textarea
               type="textarea"
               className="comment-box"
