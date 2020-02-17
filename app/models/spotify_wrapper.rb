@@ -1,5 +1,5 @@
 require 'rspotify'
-class TracksWrapper
+class SpotifyWrapper
 
   attr_reader :tracks_objects
 
@@ -15,7 +15,7 @@ class TracksWrapper
 
   def self.artist_search(artist)
     artist = RSpotify::Artist.search(artist)
-    
+
     if artist[0] == nil
       artist_page = nil
       artist_id = nil

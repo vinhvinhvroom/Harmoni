@@ -1,37 +1,62 @@
-import React, { Component } from 'react';
+import React, { useState } from "react"
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      donutShops: [],
-      searchString: ''
-    }
+const SearchBar = (props) => {
+  const [search, setSearch] = useState({
+    probe: ""
+  })
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  const handleInput = (event) => {
+    let key = event.currentTarget.name
+    let value = event.currentTarget.value
+    setSearch({
+      ...search,
+      [key]: value
+    })
   }
 
-  handleChange(event) {
-    const newSearchString = event.target.value
-    this.setState({ searchString: newSearchString })
-  }
-
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(`Form submitted: ${this.state.searchString}`);
+    let body = new FormData()
+    body.append("search[probe]", search.probe)
+    fetch(`/api/v1/tracks/search`, {
+      method: "POST",
+      body: body,
+      credentials: "same-origin",
+      headers: {
+        "Accept": "application/json"
+      }
+    })
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      } else {
+        throw new Error(response.status + ": " + response.statusText)
+      }
+    })
+    .then(body => {
+      props.searchResults(body)
+    })
+    .catch(error => console.error("Error searching show: " + error.message))
   }
 
-  render() {
-    return(
-      <form onSubmit={this.handleSubmit}>
-        <label>Search</label>
-        <input type='text' name='searchString' value={this.state.searchString} onChange={this.handleChange} />
-
-        <input type='submit' value='Submit' />
-      </form>
-    )
-  }
+  return(
+    <form onClick={handleSubmit} className="search-bar-wrapper">
+      <div className="row medium-unstack">
+        <label htmlFor="probe" className="medium-2 columns search-label">
+          Type your favorite artist and see upcoming shows from related artists!
+        </label>
+          <input
+            name="probe"
+            onChange={handleInput}
+            value={search.probe}
+            placeholder="Find new music by typing your favorite Artist"
+            type="text"
+            className="medium-8 columns search-bar"
+            />
+          <input type="submit" value="Search" className="button search-submit"/>
+      </div>
+    </form>
+  )
 }
 
-export default SearchBar;
+export default SearchBar

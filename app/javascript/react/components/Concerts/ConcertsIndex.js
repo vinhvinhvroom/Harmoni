@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import ConcertTile from "./ConcertTile"
+import SearchBar from "./SearchBar"
 
 const ConcertsIndex = (props) => {
   const[concerts, setConcerts] = useState([])
@@ -35,6 +37,11 @@ const ConcertsIndex = (props) => {
     <div className="index-container">
       <h4 className="welcome-text">"The combination of musical tones to produce a pleasing effect."</h4>
       <h6 className="welcome-text">Let Harmoni connect you with new live music near you.</h6>
+      <div className="search-link-wrapper">
+        <Link to="/search">
+          <input className="search-link button" type="button" value="Search for new live music based on your favorite Artist!"/>
+        </Link>
+      </div>
       <div className="row tile-container">
         {concertsMap}
       </div>
