@@ -40,10 +40,10 @@ const SearchBar = (props) => {
   }
 
   return(
-    <form onClick={handleSubmit} className="search">
+    <form onClick={handleSubmit} className="search-bar-wrapper">
       <div className="row medium-unstack">
-        <label htmlFor="probe" className="medium-2 columns">
-          Type your favorite artist and see upcoming shows from other artists you may like!
+        <label htmlFor="probe" className="medium-2 columns search-label">
+          Type your favorite artist and see upcoming shows from related artists!
         </label>
           <input
             name="probe"
@@ -51,9 +51,9 @@ const SearchBar = (props) => {
             value={search.probe}
             placeholder="Find new music by typing your favorite Artist"
             type="text"
-            className="medium-8 columns"
+            className="medium-8 columns search-bar"
             />
-        <input type="submit" value="Search" className="medium-2 columns button primary"/>
+          <input type="submit" value="Search" className="button search-submit"/>
       </div>
     </form>
   )
