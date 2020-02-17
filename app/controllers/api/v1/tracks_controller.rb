@@ -24,14 +24,14 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
     end
 
     if concert[:artist_name] == nil
-      playlist = TracksWrapper.search(concert[:name])
+      playlist = SpotifyWrapper.search(concert[:name])
       related_artists = nil
     else
-      playlist = TracksWrapper.search(concert[:artist_name])
-      related_artists = TracksWrapper.related_artists(concert[:artist_name])
+      playlist = SpotifyWrapper.search(concert[:artist_name])
+      related_artists = SpotifyWrapper.related_artists(concert[:artist_name])
     end
 
-    artist_spotify_object = TracksWrapper.artist_search(concert[:artist_name])
+    artist_spotify_object = SpotifyWrapper.artist_search(concert[:artist_name])
 
     show_tracks = {
       concert: concert,
@@ -42,6 +42,61 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
     }
 
     render json: show_tracks
+  end
+
+  def search
+    query = search_params
+    related_artists = SpotifyWrapper.related_artists(query[:probe])
+    ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=#{ENV["TICKET_KEY"]}&size=40&sort=date,asc&city=#{current_user.city}"
+    searched_artist_response = JSON.parse(Faraday.get("#{ticketmaster_url}&keyword=#{query[:probe]}").env["response_body"])
+    concert_list = []
+
+    if searched_artist_response["_embedded"] != nil
+      searched_artist_object = {
+        name: searched_artist_response["_embedded"]["events"][0]["name"],
+        date: Time.parse(searched_artist_response["_embedded"]["events"][0]["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
+        image: searched_artist_response["_embedded"]["events"][0]["images"][0]["url"],
+        url: searched_artist_response["_embedded"]["events"][0]["url"],
+        venue: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["name"],
+        id: searched_artist_response["_embedded"]["events"][0]["id"],
+        city: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["city"]["name"],
+        state: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["state"]["name"],
+        address: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["address"]["line1"],
+        genre: searched_artist_response["_embedded"]["events"][0]["classifications"][0]["genre"]["name"],
+        sale_date: Time.parse(searched_artist_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
+      }
+
+      concert_list << searched_artist_object
+    end
+
+    related_artists.each do |artist|
+      parsed_response = JSON.parse(Faraday.get("#{ticketmaster_url}&keyword=#{artist[:name]}").env["response_body"])
+
+      if parsed_response["_embedded"] != nil
+        artist_object = {
+          name: parsed_response["_embedded"]["events"][0]["name"],
+          date: Time.parse(parsed_response["_embedded"]["events"][0]["dates"]["start"]["localDate"]).strftime("%B %d, %Y "),
+          image: parsed_response["_embedded"]["events"][0]["images"][0]["url"],
+          url: parsed_response["_embedded"]["events"][0]["url"],
+          venue: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["name"],
+          id: parsed_response["_embedded"]["events"][0]["id"],
+          city: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["city"]["name"],
+          state: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["state"]["name"],
+          address: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["address"]["line1"],
+          genre: parsed_response["_embedded"]["events"][0]["classifications"][0]["genre"]["name"],
+          sale_date: Time.parse(parsed_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
+        }
+        concert_list << artist_object
+      end
+    end
+
+    render json: concert_list
+  end
+
+  private
+
+  def search_params
+    params.require(:search).permit(:probe)
   end
 
 end
