@@ -7,9 +7,11 @@ body{
   background-repeat: no-repeat;
 }
 
-.search-bar-wrapper{
+.bottom{
   height: 100vh;
+  opacity: 0;
 }
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
