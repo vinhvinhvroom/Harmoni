@@ -171,6 +171,16 @@ li{
   align-items: center;
 }
 
+@media only screen and (max-width: 520px) {
+  .welcome-text{
+    font-size: 30px;
+  }
+
+  .search-link{
+    font-size: 15px;
+  }
+}
+
 @media only screen and (max-width: 380px) {
   .tile-img{
     width: 250px;
