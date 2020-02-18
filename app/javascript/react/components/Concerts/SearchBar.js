@@ -4,6 +4,7 @@ const SearchBar = (props) => {
   const [search, setSearch] = useState({
     probe: ""
   })
+  const[loading, setLoading] = useState(false)
 
   const handleInput = (event) => {
     let key = event.currentTarget.name
@@ -16,6 +17,7 @@ const SearchBar = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    setLoading(true)
     let body = new FormData()
     body.append("search[probe]", search.probe)
     fetch(`/api/v1/tracks/search`, {
@@ -31,6 +33,7 @@ const SearchBar = (props) => {
         return response.json()
       } else {
         props.noConcerts();
+        setLoading(false);
         setSearch({
           probe: ""
         })
@@ -39,6 +42,7 @@ const SearchBar = (props) => {
     })
     .then(body => {
       props.searchResults(body)
+      setLoading(false)
       setSearch({
         probe: ""
       })
@@ -47,22 +51,25 @@ const SearchBar = (props) => {
   }
 
   return(
-    <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
-      <div className="row medium-unstack search-container">
-        <label htmlFor="probe" className="columns small-10 medium-6 search-label">
-          Type your favorite artist and see upcoming shows from related artists!
-        </label>
-          <input
-            name="probe"
-            onChange={handleInput}
-            value={search.probe}
-            placeholder="Find new music by typing your favorite Artist"
-            type="text"
-            className="medium-8 columns search-bar"
-            />
-          <input type="submit" value="Search" className="button search-submit"/>
-      </div>
-    </form>
+    <>
+      {loading && <h1 className="loading">Loading</h1>}
+      <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
+        <div className="row medium-unstack search-container">
+          <label htmlFor="probe" className="columns small-10 medium-6 search-label">
+            Type your favorite artist and see upcoming shows from related artists!
+          </label>
+            <input
+              name="probe"
+              onChange={handleInput}
+              value={search.probe}
+              placeholder="Find new music by typing your favorite Artist"
+              type="text"
+              className="medium-8 columns search-bar"
+              />
+            <input type="submit" value="Search" className="button search-submit"/>
+        </div>
+      </form>
+    </>
   )
 }
 
