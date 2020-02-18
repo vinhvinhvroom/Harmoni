@@ -47,7 +47,7 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
   def search
     query = search_params
     related_artists = SpotifyWrapper.related_artists(query[:probe])
-    ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=#{ENV["TICKET_KEY"]}&size=40&sort=date,asc&city=#{current_user.city}"
+    ticketmaster_url = "https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=#{ENV["TICKET_KEY"]}&size=40&city=#{current_user.city}"
     searched_artist_response = JSON.parse(Faraday.get("#{ticketmaster_url}&keyword=#{query[:probe]}").env["response_body"])
     concert_list = []
 

@@ -21,6 +21,30 @@ body{
   background-color: rgba(230, 149, 34, 0.5);
 }
 
+.top-bar-section{
+  background-color: transparent;
+}
+
+.signs{
+  background-color: #fcba03;
+  border-radius: 10px;
+}
+
+ul.right{
+  background-color: #fcba03;
+  border-radius: 10px;
+  border: solid;
+  border-color: rgba(255,255,255,0.8);
+  padding: 5px;
+  margin: 5px;
+}
+
+.sign{
+  font-family: 'Comfortaa', cursive;
+  color: #885AED;
+  background-color: transparent;
+}
+
 .title{
   font-family: 'Comfortaa', cursive;
   color: #885AED
