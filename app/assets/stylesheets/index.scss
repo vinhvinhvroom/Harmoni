@@ -63,24 +63,6 @@ li{
   position: relative
 }
 
-@media only screen and (max-width: 380px) {
-  .tile-img{
-    width: 250px;
-    height: 175px;
-  }
-
-  .tile-info-wrapper{
-    height: 100px;
-    width: 200px;
-    font-size: 11px;
-  }
-
-  .concert-tile .button{
-    width: 75px;
-    height: 30px;
-    font-size: 10px;
-  }
-}
 
 .concert-tile h4{
   color: #fff;
@@ -147,7 +129,7 @@ li{
 }
 
 .search-link{
-  border: 0 solid;
+  border: 1px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
   outline-color: rgba(255, 255, 255, .9);
@@ -156,6 +138,7 @@ li{
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   color: white;
   background-color: transparent;
+  margin-top: 10px;
 }
 
 .search-link:hover{
@@ -173,4 +156,29 @@ li{
   justify-content: center;
   margin:auto;
   align-items: center;
+}
+
+@media only screen and (max-width: 380px) {
+  .tile-img{
+    width: 250px;
+    height: 175px;
+  }
+
+  .tile-info-wrapper{
+    height: 100px;
+    width: 200px;
+    font-size: 10px;
+  }
+
+  .concert-tile .button{
+    width: 75px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .link-search{
+    width: 50%;
+    margin-right: 10px;
+  }
+
 }
