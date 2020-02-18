@@ -52,7 +52,10 @@ const SearchBar = (props) => {
 
   return(
     <>
-      {loading && <h1 className="loading">Loading</h1>}
+      {loading &&
+        <div class="loader"></div>
+      }
+
       <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
         <div className="row medium-unstack search-container">
           <label htmlFor="probe" className="columns small-10 medium-6 search-label">
