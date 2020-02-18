@@ -33,7 +33,7 @@ const SearchIndex = (props) => {
         />
       <div className="row tile-container">
         {relatedArtistsMap}
-        {noConcerts}
+        <div className="no-concerts">{noConcerts}</div>
       </div>
     </div>
   )
