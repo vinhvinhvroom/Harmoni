@@ -42,7 +42,7 @@ const CommentForm = (props) => {
     <div className="row">
       <div className="columns small-10 medium-6 large-4 comment-form-wrapper">
 
-        <form className="comments-form" onSubmit={handleSubmit}>
+        <form className="comments-form" onSubmit={handleSubmit} autoComplete="off">
 
           <ErrorsList errors={errors} />
 
