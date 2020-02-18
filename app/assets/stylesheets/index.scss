@@ -1,5 +1,8 @@
 .welcome-text{
   text-align: center;
+  font-family: 'Comfortaa', cursive;
+  color: white;
+  margin-top: 10px;
 }
 
 li{
@@ -139,6 +142,8 @@ li{
   color: white;
   background-color: transparent;
   margin-top: 10px;
+  margin-bottom: -10px;
+  font-family: 'Comfortaa', cursive;
 }
 
 .search-link:hover{
