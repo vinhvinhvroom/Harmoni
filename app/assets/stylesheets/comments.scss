@@ -52,6 +52,7 @@
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   color: black;
   background-color: transparent;
+  font-family: 'Comfortaa', cursive;
 }
 
 .comment-submit:hover{
@@ -62,6 +63,14 @@
   text-shadow: 1px 1px 2px #427388;
   background-color: #fcba03;
   color: black;
+}
+
+.comment-text{
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+.comment-share{
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 
 @media only screen and (max-width: 450px) {
