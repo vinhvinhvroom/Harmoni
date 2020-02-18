@@ -86,3 +86,13 @@
     width: 90%
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .comments-form{
+    width: 80%;
+  }
+
+  .comment-tile-wrapper{
+    width: 80%;
+  }
+}
