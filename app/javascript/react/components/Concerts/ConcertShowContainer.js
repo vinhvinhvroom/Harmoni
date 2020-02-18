@@ -28,7 +28,7 @@ const ConcertShowContainer = (props) => {
       setComments(body.specific_concert_comments)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }, [])
+  }, [comments])
 
   const submitNewComment = (formPayload) => {
     fetch(`/api/v1/concerts/${concertId}/comments`, {
@@ -59,8 +59,6 @@ const ConcertShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  let commentSort = comments.sort().reverse()
-  
   const commentsMap = comments.map((comment) => {
     return(
       <CommentTile
