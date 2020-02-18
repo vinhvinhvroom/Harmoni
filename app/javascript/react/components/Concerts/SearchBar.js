@@ -47,7 +47,7 @@ const SearchBar = (props) => {
   }
 
   return(
-    <form onSubmit={handleSubmit} className="search-bar-wrapper">
+    <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
       <div className="row medium-unstack search-container">
         <label htmlFor="probe" className="columns small-10 medium-6 search-label">
           Type your favorite artist and see upcoming shows from related artists!
