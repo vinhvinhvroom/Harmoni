@@ -33,6 +33,7 @@
   position: relative;
   text-decoration: none;
   display:inline-block;
+  font-family: 'Comfortaa', cursive;
 }
 
 .show-button::before{
@@ -108,6 +109,10 @@
 
 .spotify-player{
   border: solid white;
+}
+
+.show{
+  font-family: 'Comfortaa', cursive;
 }
 
 
