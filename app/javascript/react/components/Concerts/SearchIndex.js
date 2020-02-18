@@ -4,9 +4,16 @@ import SearchTile from "./SearchTile"
 
 const SearchIndex = (props) => {
   const[relatedArtists, setRelatedArtists] = useState([])
+  const[noConcerts, setNoConcerts] = useState("")
 
   const searchResults = (results) => {
     setRelatedArtists(results)
+    setNoConcerts("")
+  }
+
+  const noUpcomingConcerts = () => {
+    setNoConcerts("There are no upcoming concerts based on your search.")
+    setRelatedArtists([])
   }
 
   const relatedArtistsMap = relatedArtists.map((artist) => {
@@ -22,9 +29,11 @@ const SearchIndex = (props) => {
     <div>
       <SearchBar
         searchResults={searchResults}
+        noConcerts={noUpcomingConcerts}
         />
       <div className="row tile-container">
         {relatedArtistsMap}
+        {noConcerts}
       </div>
     </div>
   )
