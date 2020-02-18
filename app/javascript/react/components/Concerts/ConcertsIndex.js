@@ -35,7 +35,7 @@ const ConcertsIndex = (props) => {
 
   return(
     <div className="index-container">
-      <h4 className="welcome-text">Let Harmoni connect you with new live music near you</h4>
+      <h4 className="welcome-text">Let <span className="harmoni">Harmoni</span> connect you with new live music near you</h4>
       <div className="search-link-wrapper">
         <Link to="/search" className="link-search">
           <input className="search-link button" type="button" value="Search for new live music"/>
