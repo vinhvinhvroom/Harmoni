@@ -32,7 +32,6 @@
   <%- end -%>
 
   <%= yield %>
-
   <%= javascript_include_tag 'application' %>
 
   <%- if Rails.env.development? || Rails.env.test? -%>
@@ -44,4 +43,5 @@
 
   <%= yield :extra_footer %>
 </body>
+  <div class="bottom"></div>
 </html>
