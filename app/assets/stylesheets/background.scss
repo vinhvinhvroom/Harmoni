@@ -6,7 +6,7 @@ body{
 }
 
 .bottom{
-  height: 100vh;
+  height: 500px;
   opacity: 0;
 }
 
@@ -24,6 +24,7 @@ body{
 
 .top-bar{
   background-color: rgba(230, 149, 34, 0.9);
+  margin-bottom: 10px;
 }
 
 .top-bar-section{
@@ -54,6 +55,7 @@ ul.right{
   font-family: 'Comfortaa', cursive;
   color: #885AED;
   font-size: 70px;
+  text-shadow: 2px 2px white;
 }
 
 .field, .actions{
