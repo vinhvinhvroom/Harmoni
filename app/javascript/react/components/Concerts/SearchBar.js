@@ -30,19 +30,26 @@ const SearchBar = (props) => {
       if(response.ok) {
         return response.json()
       } else {
-        throw new Error(response.status + ": " + response.statusText)
+        props.noConcerts();
+        setSearch({
+          probe: ""
+        })
+        throw new Error(response.status + ": " + response.statusText);
       }
     })
     .then(body => {
       props.searchResults(body)
+      setSearch({
+        probe: ""
+      })
     })
     .catch(error => console.error("Error searching show: " + error.message))
   }
 
   return(
-    <form onClick={handleSubmit} className="search-bar-wrapper">
-      <div className="row medium-unstack">
-        <label htmlFor="probe" className="medium-2 columns search-label">
+    <form onSubmit={handleSubmit} className="search-bar-wrapper">
+      <div className="row medium-unstack search-container">
+        <label htmlFor="probe" className="columns small-10 medium-6 search-label">
           Type your favorite artist and see upcoming shows from related artists!
         </label>
           <input
