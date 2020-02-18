@@ -59,6 +59,8 @@ const ConcertShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  let commentSort = comments.sort().reverse()
+  
   const commentsMap = comments.map((comment) => {
     return(
       <CommentTile
