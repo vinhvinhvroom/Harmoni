@@ -3,7 +3,7 @@
   font-family: 'Comfortaa', cursive;
   color: white;
   font-size: 35px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 li{
@@ -15,6 +15,11 @@ li{
   font-size: 2em;
 }
 
+.harmoni{
+  color: #A388D6;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+}
 
 .tile-container{
   display: flex;
@@ -24,6 +29,7 @@ li{
   padding: 10px;
   margin: auto;
   width: 100%;
+  margin-top: 70px;
 }
 
 .concert-tile{
@@ -142,7 +148,7 @@ li{
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   color: white;
   background-color: transparent;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: -10px;
   font-family: 'Comfortaa', cursive;
   font-size: 20px;
@@ -163,6 +169,16 @@ li{
   justify-content: center;
   margin:auto;
   align-items: center;
+}
+
+@media only screen and (max-width: 520px) {
+  .welcome-text{
+    font-size: 30px;
+  }
+
+  .search-link{
+    font-size: 15px;
+  }
 }
 
 @media only screen and (max-width: 380px) {
