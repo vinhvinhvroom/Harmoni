@@ -4,7 +4,7 @@ class Api::V1::ConcertsController < ApplicationController
     user = current_user
     query = ""
     if user == nil
-      query = "Boston"
+      query = "Los Angeles"
     else
       query = current_user.city
     end
