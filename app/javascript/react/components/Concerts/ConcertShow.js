@@ -1,5 +1,5 @@
 import React from "react"
-import SpotifyPlayer from "react-spotify-player"
+import SpotifyPlayer from "./SpotifyPlayer"
 
 const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
   let { name, date, image, url, venue, address, city, state, genre, sub_genre, sale_date} = concertObject
@@ -23,10 +23,7 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
 
             <div className="show spotify-player">
               <SpotifyPlayer
-                uri={playlistObject}
-                size={{width: 300, height:400}}
-                view="list"
-                theme="white"
+                playlist={playlistObject}
               />
             </div>
         </div>
