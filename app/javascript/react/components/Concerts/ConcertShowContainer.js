@@ -59,12 +59,39 @@ const ConcertShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  const deleteComment = (id) => {
+    fetch(`/api/v1/concerts/${concertId}/comments/${id}`, {
+    credentials: "same-origin",
+    method: 'DELETE',
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response;
+    } else {
+      alert(response.message)
+      let errorMessage = `${response.status} (${response.statusText})`,
+       error = new Error(errorMessage)
+      throw error
+    }
+  })
+    .then(response => response.json())
+    .then(body => {
+      setComments(body)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   const commentsMap = comments.map((comment) => {
     return(
       <CommentTile
         key={comment.id}
         commentData={comment}
         concertId={concertId}
+        deleteComment={deleteComment}
       />
     )
   })
