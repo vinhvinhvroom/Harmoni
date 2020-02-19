@@ -92,7 +92,6 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
     end
 
     if concert_list.length < 1
-      flash.now[:error] = "There are no upcoming concerts"
       render json: { error: "No upcoming concerts" }, status: :unprocessable_entity
     else
       render json: concert_list
