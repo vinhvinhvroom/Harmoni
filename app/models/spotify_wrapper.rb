@@ -10,6 +10,7 @@ class SpotifyWrapper
   def self.search(artist)
     track = RSpotify::Playlist.search(artist)
     artist_playlist = track[0].external_urls["spotify"]
+    embedded_playlist = artist_playlist.insert(24, "/embed")
     return artist_playlist
   end
 

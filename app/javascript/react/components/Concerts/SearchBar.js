@@ -52,9 +52,6 @@ const SearchBar = (props) => {
 
   return(
     <>
-      {loading &&
-        <div class="loader"></div>
-      }
 
       <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
         <div className="row medium-unstack search-container">
@@ -72,6 +69,9 @@ const SearchBar = (props) => {
             <input type="submit" value="Search" className="button search-submit"/>
         </div>
       </form>
+      {loading &&
+        <div class="loader"></div>
+      }
     </>
   )
 }
