@@ -18,7 +18,7 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
               <h6 className="show show-address">{address}, {city}, {state}</h6>
               <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
               <a href={url} target="_blank" className="show-button">Tickets</a>
-              <a href={playlistObject} target="_blank" className="show-button">Spotify</a>
+              <a href={artistObject} target="_blank" className="show-button">Spotify</a>
             </div>
 
             <div className="show spotify-player">

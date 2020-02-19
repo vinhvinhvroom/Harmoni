@@ -25,7 +25,7 @@ const ConcertShowContainer = (props) => {
     .then(body => {
       setConcert(body.concert)
       setPlaylist(body.playlist)
-      setArtistSpotify(body.artist_spotify_page)
+      setArtistSpotify(body.artist_spotify_object.artist_page)
       setComments(body.specific_concert_comments)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
