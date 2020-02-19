@@ -32,11 +32,12 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
     end
 
     artist_spotify_object = SpotifyWrapper.artist_search(concert[:artist_name])
+    recent_comments = specific_concert_comments.reverse
 
     show_tracks = {
       concert: concert,
       playlist: playlist,
-      specific_concert_comments: specific_concert_comments.reverse,
+      specific_concert_comments: recent_comments,
       artist_spotify_object: artist_spotify_object,
       related_artists: related_artists
     }

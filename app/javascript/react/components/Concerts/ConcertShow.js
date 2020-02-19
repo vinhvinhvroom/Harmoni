@@ -27,7 +27,6 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
                 size={{width: 300, height:400}}
                 view="list"
                 theme="white"
-
               />
             </div>
         </div>

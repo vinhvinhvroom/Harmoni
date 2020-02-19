@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Harmoni</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"  />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@
   <%- end -%>
 
   <%= yield %>
+
   <%= javascript_include_tag 'application' %>
 
   <%- if Rails.env.development? || Rails.env.test? -%>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Redirect } from 'react-router-dom'
 import ConcertShow from "./ConcertShow"
 import CommentTile from "./CommentTile"
 import CommentForm from "./CommentForm"
@@ -28,7 +29,7 @@ const ConcertShowContainer = (props) => {
       setComments(body.specific_concert_comments)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }, [comments])
+  }, [])
 
   const submitNewComment = (formPayload) => {
     fetch(`/api/v1/concerts/${concertId}/comments`, {
@@ -52,8 +53,7 @@ const ConcertShowContainer = (props) => {
     .then(response => response.json())
     .then(body => {
       setComments([
-        ...comments,
-        body.comment
+        body.comment, ...comments
       ])
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -64,6 +64,7 @@ const ConcertShowContainer = (props) => {
       <CommentTile
         key={comment.id}
         commentData={comment}
+        concertId={concertId}
       />
     )
   })
