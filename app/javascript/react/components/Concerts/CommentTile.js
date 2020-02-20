@@ -8,7 +8,6 @@ const CommentTile = ({ commentData, concertId, deleteComment }) => {
     deleteComment(id)
   }
 
-
   return(
     <div className="row comment-tile-container">
       <li>

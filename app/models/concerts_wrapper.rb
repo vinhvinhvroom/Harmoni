@@ -62,7 +62,7 @@ class ConcertsWrapper
   end
 
   def self.concerts_request(query)
-    parsed_response = JSON.parse(Faraday.get("#{BASE_URL}&size=25&sort=relevance,desc&city=#{query}").env["response_body"])
+    parsed_response = JSON.parse(Faraday.get("#{BASE_URL}&size=20&sort=relevance,desc&city=#{query}").env["response_body"])
     return parsed_response["_embedded"]["events"]
   end
 

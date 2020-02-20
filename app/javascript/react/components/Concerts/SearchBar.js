@@ -47,12 +47,11 @@ const SearchBar = (props) => {
         probe: ""
       })
     })
-    .catch(error => console.error("Error searching show: " + error.message))
+    .catch(error => {console.error("Error searching show: " + error.message)})
   }
 
   return(
     <>
-
       <form onSubmit={handleSubmit} className="search-bar-wrapper" autoComplete="off">
         <div className="row medium-unstack search-container">
           <label htmlFor="probe" className="columns small-10 medium-6 search-label">
@@ -70,7 +69,7 @@ const SearchBar = (props) => {
         </div>
       </form>
       {loading &&
-        <div class="loader"></div>
+        <div className="loader"></div>
       }
     </>
   )

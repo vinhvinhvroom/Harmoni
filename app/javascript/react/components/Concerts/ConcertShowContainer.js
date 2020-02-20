@@ -9,20 +9,24 @@ const ConcertShowContainer = (props) => {
   const[playlist, setPlaylist] = useState(null)
   const[artistSpotify, setArtistSpotify] = useState(null)
   const[comments, setComments] = useState([])
+  const[loading, setLoading] = useState(false)
 
   let concertId = props.match.params.id
 
   useEffect(() => {
+    setLoading(true)
     fetch(`/api/v1/concerts/${concertId}/tracks/${concertId}`)
     .then(response => {
       if (response.ok) {
         return response.json()
       } else {
+        setLoading(false)
         const error = new Error(`${response.status}: ${response.statusText}`);
         throw(error)
       }
     })
     .then(body => {
+      setLoading(false)
       setConcert(body.concert)
       setPlaylist(body.playlist)
       setArtistSpotify(body.artist_spotify_object.artist_page)
@@ -32,6 +36,7 @@ const ConcertShowContainer = (props) => {
   }, [])
 
   const submitNewComment = (formPayload) => {
+    setLoading(true)
     fetch(`/api/v1/concerts/${concertId}/comments`, {
       credentials: "same-origin",
       method: 'POST',
@@ -45,6 +50,7 @@ const ConcertShowContainer = (props) => {
       if (response.ok) {
         return response;
       } else {
+        setLoading(false)
         let errorMessage = `${response.status} (${response.statusText})`,
          error = new Error(errorMessage)
         throw error
@@ -55,6 +61,7 @@ const ConcertShowContainer = (props) => {
       setComments([
         body.comment, ...comments
       ])
+      setLoading(false)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -64,12 +71,13 @@ const ConcertShowContainer = (props) => {
     credentials: "same-origin",
     method: 'DELETE',
     headers: {
-      Accept: "application/json",
+      "Accept": "application/json",
       "Content-Type": "application/json"
     }
   })
   .then(response => {
     if (response.ok) {
+
       return response;
     } else {
       alert(response.message)
@@ -80,10 +88,11 @@ const ConcertShowContainer = (props) => {
   })
     .then(response => response.json())
     .then(body => {
-      setComments(body)
+      setComments(body.comments)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
 
   const commentsMap = comments.map((comment) => {
     return(
@@ -98,6 +107,10 @@ const ConcertShowContainer = (props) => {
 
   return(
     <div>
+      {
+        loading &&
+        <div class="loader"></div>
+      }
       <ConcertShow
         key={concert.id}
         concertObject={concert}

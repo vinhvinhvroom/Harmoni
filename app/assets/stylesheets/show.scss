@@ -18,6 +18,7 @@
   width: 500px;
   border: solid red;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  object-fit:fill;
 }
 
 .show-button{
@@ -27,13 +28,28 @@
   padding: 15px 100px;
   margin:10px 4px;
   color: #fff;
-  font-family: sans-serif;
+  text-shadow: 1px 2px black;
   text-transform: uppercase;
   text-align: center;
   position: relative;
   text-decoration: none;
   display:inline-block;
   font-family: 'Comfortaa', cursive;
+}
+
+.show-name{
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 2px 2px white;
+}
+
+.show{
+  font-weight: bold;
+}
+
+.show-venue{
+  font-size: 23px;
+  text-shadow: 2px 2px white;
 }
 
 .show-button::before{
@@ -104,7 +120,7 @@
   transition: box-shadow .3s;
   padding: 10px;
   margin: 15px;
-  width: 300px;
+  width: 450px;
 }
 
 .spotify-player{

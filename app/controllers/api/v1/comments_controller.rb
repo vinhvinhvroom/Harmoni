@@ -26,25 +26,16 @@ class Api::V1::CommentsController < ApplicationController
 
     comments = Comment.all
     specific_concert_comments = []
-
-    comments.each do |comment|
-      if comment.tm_id == params[:concert_id]
-        comment_object = {
-          id: comment.id,
-          comment: comment.comment,
-          concert_name: comment.concert_name,
-          concert_id: comment.tm_id,
-          user_name: comment.user.username,
-          comment_time: "#{comment.created_at.strftime("%B %d, %Y - %I:%M%P")}",
-          user: comment.user
-        }
-        specific_concert_comments << comment_object
-      end
-    end
     comment = Comment.find(params[:id])
 
     if current_user == comment.user
       comment.destroy
+      comments.each do |comment|
+        if comment.tm_id == params[:concert_id]
+          specific_concert_comments << comment
+        end
+      end
+      
       render json: specific_concert_comments.reverse
     else
       render json: { message: "Could not delete comment. Please try again later."}

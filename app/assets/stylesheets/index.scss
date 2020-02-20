@@ -1,7 +1,9 @@
 .welcome-text{
   text-align: center;
   font-family: 'Comfortaa', cursive;
-  color: white;
+  color: black;
+  font-weight: bold;
+  text-shadow:2px 2px white;
   font-size: 40px;
   margin-top: 20px;
 }
@@ -12,13 +14,12 @@ li{
 
 .concert-name .date .venue .welcome-text{
   font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 2em;
 }
 
 .harmoni{
-  color: #A388D6;
+  color: #fff;
   font-weight: bold;
-  text-shadow: 1px 1px white;
+  text-shadow: 3px 3px black;
 }
 
 .tile-container{
@@ -50,8 +51,8 @@ li{
 }
 
 .concert-tile .tile-info-wrapper{
-  width: 375px;
-  height: 300px;
+  width: 425px;
+  height: 320px;
   position: absolute;
   overflow: hidden;
   top: 0;
@@ -67,8 +68,8 @@ li{
 
 .tile-img{
   transition: all 0.2s linear;
-  width: 350px;
-  height: 250px;
+  width: 400px;
+  height: 300px;
   display: block;
   position: relative
 }
@@ -76,15 +77,16 @@ li{
 
 .concert-tile h4{
   color: #fff;
+  text-shadow: 1px 2px black;
   text-align: center;
   position: relative;
-  font-size: 25px;
   padding: 10px;
-  margin: 20px 0 0 0
+  margin: 20px 0 0 0;
+  font-weight: bold;
 }
 
 .concert-tile h6{
-  font-size: 18px;
+  font-size: 16px;
   position: relative;
   color: #fff;
   padding: 0px 20px 0px;
@@ -95,6 +97,7 @@ li{
   transform: translateY(-100px);
   opacity: 0;
   transition: all 0.2s ease-in-out;
+  font-size: 20px;
 }
 
 .concert-tile h6{
@@ -112,6 +115,16 @@ li{
   color: black;
 }
 
+.concert-tile:hover .button{
+  transform: translateY(100px);
+  opacity: 0.9;
+  transition: all 0.2s linear;
+  border-radius: 5px;
+  background-color: #fcba03;
+  color: black;
+  transform: scale(1.1);
+}
+
 .concert-tile:hover img{
   transform: scale(1.1);
 }
@@ -126,7 +139,6 @@ li{
 .concert-tile:hover h6{
   opacity: 1;
   transform: translateY(0px);
-  font-size: 1em;
 }
 
 .concert-tile:hover input{
@@ -139,14 +151,14 @@ li{
 }
 
 .search-link{
-  border: 1px solid;
+  border: 1px solid white;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
   outline: 1px solid;
   outline-color: rgba(255, 255, 255, .9);
   outline-offset: 0px;
   text-shadow: none;
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-  color: white;
+  color: black;
   background-color: transparent;
   margin-top: 20px;
   margin-bottom: -10px;
@@ -155,7 +167,7 @@ li{
 }
 
 .search-link:hover{
-  border: 1px solid;
+  border: 2px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;

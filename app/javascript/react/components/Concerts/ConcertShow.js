@@ -13,9 +13,9 @@ const ConcertShow = ({ concertObject, playlistObject, artistObject }) => {
             <div className="show info-wrapper">
               <h4 className="show show-name">{name}</h4>
               <p className="show show-genre">{genre}</p>
-              <h6 className="show show-date">{date}</h6>
               <h6 className="show show-venue">{venue}</h6>
-              <h6 className="show show-address">{address}, {city}, {state}</h6>
+              <h6 className="show show-address">{address}, {city}, {state}</h6><br/>
+              <h6 className="show show-date">{date}</h6>
               <h6 className="show show-sale-date">On Sale: {sale_date}</h6>
               <a href={url} target="_blank" className="show-button">Tickets</a>
               <a href={artistObject} target="_blank" className="show-button">Spotify</a>
