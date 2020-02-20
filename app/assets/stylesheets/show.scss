@@ -143,9 +143,38 @@
 
 }
 
+@media only screen and (max-width: 380px) {
+  iframe{
+    width: 90%;
+  }
+
+  .spotify-player{
+    border: none;
+  }
+
+}
+
 @media only screen and (max-width: 515px) {
   .show-img{
     height: 250px;
     width: 350px;
+  }
+
+  .show-name{
+    font-size: 20px;
+  }
+
+  .show .show-content-wrapper{
+    width: 300px;
+    border: solid;
+  }
+
+  .show-venue{
+    font-size: 13px;
+  }
+
+  .show .info-wrapper{
+    width: 100%;
+    margin: auto;
   }
 }

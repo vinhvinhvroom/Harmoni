@@ -73,6 +73,10 @@ ul.right{
   font-size: 20px;
 }
 
+.field-label{
+  font-family: 'Comfortaa', cursive;
+}
+
 .field-submit{
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
@@ -85,6 +89,8 @@ ul.right{
   background-color: transparent;
   font-family: 'Comfortaa', cursive;
   font-size: 30px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .field-submit:hover{
@@ -108,10 +114,45 @@ ul.right{
   margin:auto;
 }
 
+.actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 750px){
+
+  .field{
+    width: 100%;
+  }
+  .field-input{
+    width: 60%;
+    margin: auto;
+  }
+
+  .field-label{
+    width: 300px;
+    margin: auto;
+  }
+
+  .field-submit{
+    font-size: 15px;
+    height: 60px;
+  }
+}
+
 @media only screen and (max-width: 600px){
   .title{
     font-size: 50px;
   }
+
+  .sign-up-in{
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+  }
+
 }
 
 @media only screen and (max-width: 450px){

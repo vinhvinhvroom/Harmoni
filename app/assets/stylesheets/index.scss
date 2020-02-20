@@ -199,6 +199,14 @@ li{
     height: 175px;
   }
 
+  .concert-tile h4{
+    font-size: 12px;
+  }
+
+  .concert-tile h6{
+    font-size: 12px;
+  }
+
   .tile-info-wrapper{
     height: 100px;
     width: 200px;
@@ -211,9 +219,17 @@ li{
     font-size: 10px;
   }
 
-  .link-search{
-    width: 50%;
-    margin-right: 10px;
+  .search-link{
+    width: 100%;
+    margin-right: auto;
+  }
+
+  .welcome-text{
+    font-size: 20px;
+  }
+
+  .harmoni{
+    text-shadow: 1px 1px black;
   }
 
 }
