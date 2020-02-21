@@ -151,6 +151,10 @@
     border: none;
   }
 
+  .show-name, .show-venue{
+    text-shadow: 1px 1px white;
+  }
+
 }
 
 @media only screen and (max-width: 515px) {
