@@ -1,7 +1,7 @@
 .comment-tile-wrapper{
   border: solid white;
   border-radius: 15px;
-  width: 40%;
+  width: 50%;
   margin: auto;
   padding: 10px;
   transition: box-shadow .3s;
@@ -33,7 +33,7 @@
 }
 
 .comments-form{
-  width: 40%;
+  width: 50%;
   height: 125%;
   margin: auto;
   margin-bottom: 500px;
@@ -88,6 +88,14 @@
   .comments-form{
     width: 90%;
     height: 250px;
+  }
+
+  .comment-text{
+    font-size: 15px;
+  }
+
+  .comment-user{
+    font-size: 20px;
   }
 
   .comment-tile-wrapper{

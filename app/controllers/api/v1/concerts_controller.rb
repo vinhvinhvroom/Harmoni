@@ -2,14 +2,17 @@ class Api::V1::ConcertsController < ApplicationController
 
   def index
     user = current_user
-    query = ""
+    state=""
+    city = ""
     if user == nil
-      query = "Boston"
+      city = "Boston"
+      state = "MA"
     else
-      query = current_user.city
+      city = current_user.city
+      state = current_user.state
     end
 
-    concerts_wrapper = ConcertsWrapper.retrieve_concerts(query)
+    concerts_wrapper = ConcertsWrapper.retrieve_concerts(city, state)
     render json: concerts_wrapper
   end
 

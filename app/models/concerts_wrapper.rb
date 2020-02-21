@@ -33,8 +33,8 @@ class ConcertsWrapper
     return concert_object
   end
 
-  def self.retrieve_concerts(query)
-    concertsData = concerts_request(query)
+  def self.retrieve_concerts(city, state)
+    concertsData = concerts_request(city, state)
     concerts = concerts(concertsData)
     concerts_array=[]
     concerts_wrapper = ConcertsWrapper.new(concerts).concerts_objects
@@ -61,8 +61,8 @@ class ConcertsWrapper
     return concerts_array
   end
 
-  def self.concerts_request(query)
-    parsed_response = JSON.parse(Faraday.get("#{BASE_URL}&size=20&sort=relevance,desc&city=#{query}").env["response_body"])
+  def self.concerts_request(city, state)
+    parsed_response = JSON.parse(Faraday.get("#{BASE_URL}&size=20&sort=relevance,desc&city=#{city}&state=#{state}&radius=50&unit=miles").env["response_body"])
     return parsed_response["_embedded"]["events"]
   end
 
