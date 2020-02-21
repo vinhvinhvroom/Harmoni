@@ -15,11 +15,16 @@
   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
   color: white;
   background-color: transparent;
-  width: 20%;
-  margin: auto;
+  width: 25%;
   margin-top: 10px;
   font-family: 'Comfortaa', cursive;
   font-size: 20px;
+}
+
+.search-submit-container{
+  width: 100%; 
+  display: flex;
+  justify-content: center;
 }
 
 .search-submit:hover{
@@ -56,6 +61,9 @@
 
 .search-container{
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .no-concerts{

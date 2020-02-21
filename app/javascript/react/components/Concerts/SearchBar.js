@@ -65,7 +65,9 @@ const SearchBar = (props) => {
               type="text"
               className="medium-8 columns search-bar"
               />
-            <input type="submit" value="Search" className="button search-submit"/>
+            <div className="search-submit-container">
+              <input type="submit" value="Search" className="button search-submit"/>
+            </div>
         </div>
       </form>
       {loading &&
