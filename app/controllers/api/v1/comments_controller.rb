@@ -1,8 +1,18 @@
 class Api::V1::CommentsController < ApplicationController
 
   def index
+    concert = ConcertsWrapper.retrieve_specific_concert(params[:concert_id])
+
     comments = Comment.all
-    render json: comments
+    concert_comments = []
+
+    comments.each do |comment|
+      if comment.tm_id ==  concert[:id]
+        concert_comments << comment
+      end
+    end
+
+    render json: concert_comments
   end
 
   def create
@@ -35,8 +45,8 @@ class Api::V1::CommentsController < ApplicationController
           specific_concert_comments << comment
         end
       end
-      
-      render json: specific_concert_comments.reverse
+
+        render json: specific_concert_comments.reverse
     else
       render json: { message: "Could not delete comment. Please try again later."}
     end

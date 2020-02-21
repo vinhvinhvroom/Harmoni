@@ -44,6 +44,20 @@
   margin-bottom: 80px;
 }
 
+.hidden{
+  display: none;
+}
+
+.visible{
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: #fcba03;
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+
 .comment-submit{
   border: 0 solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
@@ -75,14 +89,13 @@
 .comment-user{
   font-weight: bold;
   color: #A388D6;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .comment-share{
   font-family: 'Quattrocento Sans', sans-serif;
   font-size: 20px;
 }
-
 
 @media only screen and (max-width: 450px) {
   .comments-form{

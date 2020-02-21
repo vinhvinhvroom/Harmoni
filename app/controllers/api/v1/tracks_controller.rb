@@ -39,7 +39,8 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
       playlist: playlist,
       specific_concert_comments: recent_comments,
       artist_spotify_object: artist_spotify_object,
-      related_artists: related_artists
+      related_artists: related_artists,
+      current_user: current_user
     }
 
     render json: show_tracks

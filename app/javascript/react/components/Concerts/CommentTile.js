@@ -1,8 +1,14 @@
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 
-const CommentTile = ({ commentData, concertId, deleteComment }) => {
+const CommentTile = ({ commentData, concertId, deleteComment, currentUser }) => {
   let { id, comment, user_name, user, comment_time, tm_id } = commentData
+
+  let className = "hidden button"
+
+  if(currentUser === user_name) {
+    className = "visible button"
+  }
 
   const handleDelete = () => {
     deleteComment(id)
@@ -16,7 +22,7 @@ const CommentTile = ({ commentData, concertId, deleteComment }) => {
             <h5 className="comment-user">{user_name}</h5>
             <p className="comment-text">{comment}</p>
             <p className="comment-text">{comment_time}</p>
-            <input onClick={handleDelete} className="button delete-comment" type="submit" value="Delete Comment"/>
+            <input onClick={handleDelete} className={className} type="submit" value="Delete Comment"/>
           </div>
         </div>
       </li>

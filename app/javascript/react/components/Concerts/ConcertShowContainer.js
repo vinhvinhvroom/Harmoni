@@ -10,6 +10,7 @@ const ConcertShowContainer = (props) => {
   const[artistSpotify, setArtistSpotify] = useState(null)
   const[comments, setComments] = useState([])
   const[loading, setLoading] = useState(false)
+  const[currentUser, setCurrentUser] = useState(null)
 
   let concertId = props.match.params.id
 
@@ -31,6 +32,7 @@ const ConcertShowContainer = (props) => {
       setPlaylist(body.playlist)
       setArtistSpotify(body.artist_spotify_object.artist_page)
       setComments(body.specific_concert_comments)
+      setCurrentUser(body.current_user.username)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -77,7 +79,6 @@ const ConcertShowContainer = (props) => {
   })
   .then(response => {
     if (response.ok) {
-
       return response;
     } else {
       alert(response.message)
@@ -101,6 +102,7 @@ const ConcertShowContainer = (props) => {
         commentData={comment}
         concertId={concertId}
         deleteComment={deleteComment}
+        currentUser={currentUser}
       />
     )
   })
@@ -109,7 +111,7 @@ const ConcertShowContainer = (props) => {
     <div>
       {
         loading &&
-        <div class="loader"></div>
+        <div className="loader"></div>
       }
       <ConcertShow
         key={concert.id}
