@@ -54,12 +54,22 @@ ul.right{
   font-size: 20px;
 }
 
+.sign:hover{
+  color: #23d5ab;
+  transition: ease .5s;
+}
+
 .title{
   font-family: 'Comfortaa', cursive;
   color: #A388D6;
   font-size: 70px;
   font-weight: bold;
   text-shadow: 2px 2px white;
+}
+
+.title:hover{
+  color: #23d5ab;
+  transition: ease .5s;
 }
 
 .field, .actions{
