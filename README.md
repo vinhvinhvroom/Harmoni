@@ -10,31 +10,47 @@ Connect to new live music in your city based off of favorite artists! By searchi
 Technologies:
 
 Ruby - 2.6.5
+
 Rails - 5.2.3
+
 React - 16.8.0
+
 PostgreSQL
+
 Foundation
+
 Spotify API
+
 Ticketmaster API
+
 Faraday
 
 To Run Locally:
 
 Download the Repo
+
 yarn install
+
 bundle exec bundle install
+
 bundle exec rake db:create
+
 bundle exec rake db:migrate
+
 yarn start
+
 rails s
+
 Navigate your browser to localhost:3000
 
 You will require:
 
 Register for Spotify Client IDs
+
 Ticketmaster API Keys
 
 Author
 
 Vinh Doan
+
 https://www.linkedin.com/in/vinh-doan1313/
