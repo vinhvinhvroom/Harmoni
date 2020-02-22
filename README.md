@@ -33,6 +33,6 @@ Connect to new live music in your city based off of favorite artists! By searchi
 * Register for Spotify Client IDs
 * Ticketmaster API Keys
 
-####### Author
+#### Author
 Vinh Doan
 https://www.linkedin.com/in/vinh-doan1313/
