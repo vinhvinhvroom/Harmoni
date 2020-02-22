@@ -19,7 +19,7 @@ Connect to new live music in your city based off of favorite artists! By searchi
 * Ticketmaster API
 * Faraday
 
-##Technologies
+## Instructions
 * Download the Repo
 * yarn install
 * bundle exec bundle install
@@ -29,10 +29,10 @@ Connect to new live music in your city based off of favorite artists! By searchi
 * rails s
 * Navigate your browser to localhost:3000
 
-##You will require:
+## You will require:
 * Register for Spotify Client IDs
 * Ticketmaster API Keys
 
-#######Author
+####### Author
 Vinh Doan
 https://www.linkedin.com/in/vinh-doan1313/
