@@ -7,6 +7,9 @@ Description:
 
 Connect to new live music in your city based off of favorite artists! By searching for an artist you want to see live, Harmoni will filter through the Spotify API to find related artists and connect to the Ticketmaster API to find if any of those artists are playing in your city.
 
+
+
+
 Technologies:
 
 Ruby - 2.6.5
@@ -24,6 +27,10 @@ Spotify API
 Ticketmaster API
 
 Faraday
+
+
+
+
 
 To Run Locally:
 
@@ -43,11 +50,19 @@ rails s
 
 Navigate your browser to localhost:3000
 
+
+
+
+
 You will require:
 
 Register for Spotify Client IDs
 
 Ticketmaster API Keys
+
+
+
+
 
 Author
 
