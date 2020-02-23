@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const SearchTile = ({ artistData }) => {
-  let { name, date, image, url, venue, id, city, state, address, genre, sale_date } = artistData
+  let { name, date, image, url, venue, id, city, state, address, genre, sale_date, current_user } = artistData
 
   return(
     <div className="columns small-10 medium-6 large-3 tile-wrapper">

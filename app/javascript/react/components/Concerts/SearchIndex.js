@@ -24,7 +24,7 @@ const SearchIndex = (props) => {
       />
     )
   })
-
+debugger
   return(
     <div>
       <SearchBar

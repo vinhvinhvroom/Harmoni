@@ -32,6 +32,7 @@ const SearchBar = (props) => {
       if(response.ok) {
         return response.json()
       } else {
+        debugger
         props.noConcerts();
         setLoading(false);
         setSearch({

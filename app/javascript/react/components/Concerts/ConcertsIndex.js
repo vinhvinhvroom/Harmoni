@@ -43,7 +43,7 @@ const ConcertsIndex = (props) => {
         </Link>
       </div>
       <br/>
-      <h4 className="welcome-text">Here are some popular upcoming shows:</h4>
+      <h4 className="upcoming-shows">Here are some popular upcoming shows:</h4>
       <div className="row tile-container">
         {concertsMap}
       </div>

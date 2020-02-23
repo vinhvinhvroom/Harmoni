@@ -6,8 +6,9 @@ body{
 }
 
 .bottom{
-  height: 500px;
+  height: 100%;
   opacity: 0;
+  border: solid;
 }
 
 @keyframes gradient {
@@ -62,7 +63,7 @@ ul.right{
 .title{
   font-family: 'Comfortaa', cursive;
   color: #A388D6;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: bold;
   text-shadow: 2px 2px white;
 }
@@ -153,11 +154,11 @@ ul.right{
 
 @media only screen and (max-width: 600px){
   .title{
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .sign-up-in{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     width: 200px;
     text-align: center;
@@ -167,8 +168,12 @@ ul.right{
 
 @media only screen and (max-width: 450px){
   .title{
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: 1px 0px white;
+  }
+
+  .sign{
+    font-size: 15px;
   }
 
 }

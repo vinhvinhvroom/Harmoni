@@ -65,7 +65,8 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
         state: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["state"]["name"],
         address: searched_artist_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["address"]["line1"],
         genre: searched_artist_response["_embedded"]["events"][0]["classifications"][0]["genre"]["name"],
-        sale_date: Time.parse(searched_artist_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
+        sale_date: Time.parse(searched_artist_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P"),
+        current_user: current_user
       }
 
       concert_list << searched_artist_object
@@ -86,7 +87,8 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
           state: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["state"]["name"],
           address: parsed_response["_embedded"]["events"][0]["_embedded"]["venues"][0]["address"]["line1"],
           genre: parsed_response["_embedded"]["events"][0]["classifications"][0]["genre"]["name"],
-          sale_date: Time.parse(parsed_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P")
+          sale_date: Time.parse(parsed_response["_embedded"]["events"][0]["sales"]["public"]["startDateTime"]).strftime("%B %d, %Y - %I:%M%P"),
+          current_user: current_user
         }
         concert_list << artist_object
       end
