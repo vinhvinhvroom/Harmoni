@@ -49,7 +49,7 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
   def search
     query = search_params
     related_artists = SpotifyWrapper.related_artists(query[:probe])
-    state=""
+    state = ""
     city = ""
     if current_user == nil
       city = "Boston"
