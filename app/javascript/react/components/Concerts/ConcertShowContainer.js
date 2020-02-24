@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import ConcertShow from "./ConcertShow"
 import CommentTile from "./CommentTile"
 import CommentForm from "./CommentForm"
+import RelatedArtist from "./RelatedArtist"
 
 const ConcertShowContainer = (props) => {
   const[concert, setConcert] = useState([])
@@ -11,6 +12,7 @@ const ConcertShowContainer = (props) => {
   const[comments, setComments] = useState([])
   const[loading, setLoading] = useState(false)
   const[currentUser, setCurrentUser] = useState(null)
+  const[relatedArtists, setRelatedArtists] = useState([])
 
   let concertId = props.match.params.id
 
@@ -33,6 +35,7 @@ const ConcertShowContainer = (props) => {
       setArtistSpotify(body.artist_spotify_object.artist_page)
       setComments(body.specific_concert_comments)
       setCurrentUser(body.current_user.username)
+      setRelatedArtists(body.related_artists)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -94,7 +97,6 @@ const ConcertShowContainer = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
   const commentsMap = comments.map((comment) => {
     return(
       <CommentTile
@@ -107,18 +109,38 @@ const ConcertShowContainer = (props) => {
     )
   })
 
+  const relatedArtistsMap = relatedArtists.map((artist) => {
+    return(
+      <RelatedArtist
+        key={artist.id}
+        name={artist.name}
+        spotifyLink={artist.spotify_link}
+        image={artist.image}
+        genre={artist.genre}
+      />
+    )
+  })
+
   return(
     <div>
       {
         loading &&
         <div className="loader"></div>
       }
+
       <ConcertShow
         key={concert.id}
         concertObject={concert}
         playlistObject={playlist}
         artistObject={artistSpotify}
       />
+
+    <div className="related-comment-wrapper">
+      <h6 className="show show-related-suggestion">You may like these artists too!</h6>
+      <div className="columns small-10 medium-6 large-4 show show-related-wrapper">
+      {relatedArtistsMap}
+      </div>
+
       <div className="comment-form-tile-wrapper">
         <CommentForm
         onSubmit={submitNewComment}
@@ -126,6 +148,8 @@ const ConcertShowContainer = (props) => {
         />
         {commentsMap}
       </div>
+    </div>
+    
     </div>
   )
 }

@@ -130,14 +130,122 @@
   font-family: 'Comfortaa', cursive;
 }
 
+.show-related-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px;
+  padding: 10px;
+  border-radius: 15px;
+  transition: box-shadow .3s;
+  height: 475px;
+}
 
-@media only screen and (max-width: 815px) {
+.show-related-wrapper:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+}
+
+.related-tile{
+  width: 250px;
+  margin: 30px;
+  align-items: center;
+}
+
+.show-related-img{
+  border-radius: 20px;
+  border: solid red;
+  height: 250px;
+  width: 250px;
+}
+
+.show-related-name, .show-related-genre{
+  width: 100%;
+  text-shadow: 1px 1px white;
+  margin: auto;
+  text-align: center;
+}
+
+.show-related-suggestion{
+  width: 100%;
+  text-shadow: 1px 1px white;
+  text-align: center;
+  font-size: 25px;
+}
+
+.related-link{
+  border: 2px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: #fcba03;
+  opacity: .8;
+  color: black;
+  margin: auto;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.related-button-wrapper{
+  width: 100%;
+}
+
+@media only screen and (max-width: 1370px){
+  .show-related-wrapper{
+    margin: 10px;
+  }
+
+  .related-tile{
+    width: 200px;
+  }
+
+  .show-related-img{
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+
+  .related-tile{
+    width: 150px;
+  }
+
+  .show-related-wrapper{
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 700px){
+  .comment-form-tile-wrapper{
+    margin-top: -250px;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
   .show-content-wrapper{
     display: flex;
     flex-direction: column;
     padding: 0px;
     margin: 0px;
     width: 90%;
+  }
+
+  .show-related-wrapper{
+    flex-wrap: wrap;
+    padding: 0px;
+    margin-bottom: 500px;
+  }
+
+  .related-button{
+    opacity: 0.9;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    background-color: #fcba03;
+    color: black;
+    transform: scale(1.1);
   }
 
 }
@@ -160,9 +268,23 @@
     width: 80%;
   }
 
+  .show-related-img{
+    height: 150px;
+    width: 150px;
+  }
+
+  .show-related-wrapper{
+    margin-bottom: -220px;
+  }
+
 }
 
-@media only screen and (max-width: 515px) {
+@media only screen and (max-width: 530px) {
+
+  .comment-form-tile-wrapper{
+    margin-top: 1000px;
+  }
+
   .show-img{
     height: 250px;
     width: 350px;
@@ -184,5 +306,9 @@
   .show .info-wrapper{
     width: 100%;
     margin: auto;
+  }
+
+  .show-related-suggestion{
+    font-size: 15px;
   }
 }
