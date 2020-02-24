@@ -217,7 +217,7 @@
   }
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 800px){
   .comment-form-tile-wrapper{
     margin-top: -250px;
   }
@@ -246,6 +246,10 @@
     background-color: #fcba03;
     color: black;
     transform: scale(1.1);
+  }
+
+  .comment-form-tile-wrapper{
+    margin-top: -250px;
   }
 
 }
@@ -284,7 +288,7 @@
   .comment-form-tile-wrapper{
     margin-top: 1000px;
   }
-
+  
   .show-img{
     height: 250px;
     width: 350px;
