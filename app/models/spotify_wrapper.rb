@@ -1,4 +1,5 @@
 require 'rspotify'
+RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECRET_ID"]}")
 class SpotifyWrapper
 
   attr_reader :tracks_objects
@@ -47,7 +48,9 @@ class SpotifyWrapper
         related_artist_object = {
           name: artist["name"],
           spotify_id: artist["id"],
-          spotify_link: artist["external_urls"]["spotify"]
+          spotify_link: artist["external_urls"]["spotify"],
+          image: artist["images"][1]["url"],
+          genre: artist["genres"][0]
         }
 
         related_artists << related_artist_object

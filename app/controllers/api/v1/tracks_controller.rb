@@ -1,7 +1,6 @@
 class Api::V1::TracksController < ApplicationController
 RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECRET_ID"]}")
 
-
   def show
     concert = ConcertsWrapper.retrieve_specific_concert(params[:id])
 
@@ -39,7 +38,7 @@ RSpotify.authenticate("#{ENV["SPOTIFY_CLIENT_ID"]}", "#{ENV["SPOTIFY_CLIENT_SECR
       playlist: playlist,
       specific_concert_comments: recent_comments,
       artist_spotify_object: artist_spotify_object,
-      related_artists: related_artists,
+      related_artists: related_artists[0..3],
       current_user: current_user
     }
 
