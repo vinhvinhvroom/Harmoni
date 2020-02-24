@@ -22,7 +22,7 @@ const CommentTile = ({ commentData, concertId, deleteComment, currentUser }) => 
             <h5 className="comment-user">{user_name}</h5>
             <p className="comment-text comment">{comment}</p>
             <p className="comment-text comment-time">{comment_time}</p>
-            <input onClick={handleDelete} className={className} type="submit" value="Delete Comment"/>
+            <input onClick={handleDelete} className={className} type="submit" value="Delete"/>
           </div>
         </div>
       </li>
