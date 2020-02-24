@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get "/concerts", to: "homes#index"
   get "/concerts/:id", to: "homes#index"
   get "/search", to: "homes#index"
-
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
