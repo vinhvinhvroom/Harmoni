@@ -4,9 +4,9 @@ const RelatedArtist = (props) => {
 
   return(
     <div className="related-tile">
-      <p className="show show-related-name">{props.name}</p>
+      <h4 className="show show-related-name">{props.name}</h4>
       <img className="show show-related-img" src={props.image}/>
-      <p className="show-related-genre">{props.genre}</p>
+      <h5 className="show-related-genre">{props.genre}</h5>
       <div className="related-button-wrapper">
       <a href={props.spotifyLink} target="_blank" className="related-link button">Spotify</a>
       </div>
