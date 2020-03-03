@@ -73,4 +73,9 @@ class ConcertsWrapper
     end
     return concerts_list
   end
+
+  def self.search(artist, city, state)
+    searched_artist_response = JSON.parse(Faraday.get("https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&apikey=#{ENV["TICKET_KEY"]}&size=40&city=#{city}&state=state=#{state}&keyword=#{artist}").env["response_body"])
+    return searched_artist_response
+  end
 end

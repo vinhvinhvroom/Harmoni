@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import ConcertTile from "./ConcertTile"
-import SearchBar from "./SearchBar"
 
 const ConcertsIndex = (props) => {
   const[concerts, setConcerts] = useState([])
